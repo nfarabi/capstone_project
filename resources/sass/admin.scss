@@ -1,0 +1,86 @@
+// Google Font: Source Sans Pro
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=swap");
+// Font Awesome 5
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+// Select2
+@import "~select2";
+// AdminLTE 3
+@import "~admin-lte/build/scss/AdminLTE";
+// Summernote WYSIWYG editor
+@import "~summernote/dist/summernote-bs4.min.css";
+// jQuery UI
+@import '~jquery-ui/themes/base/all.css';
+
+// Highlight error message and input
+.form-group {
+    &.has-error {
+        label {
+            color: $danger;
+        }
+        .form-control, .input-group-addon {
+            border-color: $danger;
+            box-shadow: none;
+        }
+        .help-block {
+            color: $danger;
+        }
+    }
+}
+
+// Highlight roles
+.badge {
+    &.role-super-admin {
+        color: #fff;
+        background-color: $gray-600;
+    }
+    &.role-admin {
+        color: #fff;
+        background-color: $teal;
+    }
+}
+
+.inline {
+    display: inline;
+}
+
+.badge-teal {
+    color: #fff;
+    background-color: $teal;
+}
+a {
+    &.badge-teal {
+        &:hover,
+        &:focus {
+            color: #fff;
+            background-color: $teal;
+        }
+        &:focus,
+        &.focus {
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+        }
+
+    }
+}
+
+.alert {
+    position: fixed;
+    bottom: 5px;
+    width: 40%;
+    left: calc(-50vw + 50%);
+    right: calc(-50vw + 50%);
+    margin-left: auto;
+    margin-right: auto;
+
+    &.flash-message {
+        z-index: 2000;
+    }
+}
+
+.row.meta-template,
+.row.media-template {
+    padding-bottom: 0.5rem;
+}

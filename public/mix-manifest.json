@@ -1,4 +1,16 @@
 {
+    "/js/admin.js": "/js/admin.js",
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/admin.css": "/css/admin.css",
+    "/css/app.css": "/css/app.css",
+    "/js/vendor/codemirror/codemirror.js": "/js/vendor/codemirror/codemirror.js",
+    "/js/vendor/codemirror/mode/xml/xml.js": "/js/vendor/codemirror/mode/xml/xml.js",
+    "/js/vendor/codemirror/mode/css/css.js": "/js/vendor/codemirror/mode/css/css.js",
+    "/js/vendor/codemirror/mode/javascript/javascript.js": "/js/vendor/codemirror/mode/javascript/javascript.js",
+    "/js/vendor/codemirror/addon/display/autorefresh.js": "/js/vendor/codemirror/addon/display/autorefresh.js",
+    "/js/vendor/codemirror/addon/scroll/simplescrollbars.js": "/js/vendor/codemirror/addon/scroll/simplescrollbars.js",
+    "/css/vendor/codemirror/codemirror.css": "/css/vendor/codemirror/codemirror.css",
+    "/css/vendor/codemirror/theme/monokai.css": "/css/vendor/codemirror/theme/monokai.css",
+    "/css/vendor/codemirror/addon/scroll/simplescrollbars.css": "/css/vendor/codemirror/addon/scroll/simplescrollbars.css",
+    "/css/plugins/icheck-bootstrap/icheck-bootstrap.min.css": "/css/plugins/icheck-bootstrap/icheck-bootstrap.min.css"
 }
