@@ -45,6 +45,11 @@ class Page extends Model
         'code_js',
     ];
 
+    /**
+     * The "booting" method of the model.
+     *
+     * @return void
+     */
     public static function boot()
     {
         parent::boot();

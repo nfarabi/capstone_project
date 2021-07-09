@@ -117,7 +117,7 @@ class LanguageController extends Controller
     }
 
     /**
-     * Toggle the specified resource in storage as activated/inactivated.
+     * Toggle the specified resource in storage as activated/deactivated.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Language  $language

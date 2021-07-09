@@ -12,6 +12,12 @@ class Permission extends BasePermission
         parent::__construct($attributes);
     }
 
+    /**
+     * Set the permission's name.
+     *
+     * @param  string  $name
+     * @return void
+     */
     public function setNameAttribute($name)
     {
         $this->attributes['name'] = Str::kebab($name);

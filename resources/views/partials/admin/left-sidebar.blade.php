@@ -53,6 +53,18 @@
                 </li>
                 <li class="nav-header">CONTENTS</li>
                 <li class="nav-item">
+                    <a href="{{ route('admin.product-categories.index') }}" class="nav-link {{ ! request()->is('admin/product-categories*') ?: 'active' }}">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p>Product Categories</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.products.index') }}" class="nav-link {{ ! request()->is('admin/products*') ?: 'active' }}">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p>Products</p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('admin.pages.index') }}" class="nav-link {{ ! request()->is('admin/pages*') ?: 'active' }}">
                         <i class="nav-icon fas fa-book"></i>
                         <p>Pages</p>

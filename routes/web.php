@@ -38,6 +38,25 @@ Route::middleware(['language'])->group(function () {
         Route::resource('/pages', 'PageController')->except(['show']);
         // Page routes [END]
 
+        // Product routes [BEGIN]
+        Route::prefix('products')->as('products.')->group(function () {
+            Route::get('/copy', 'ProductController@copy')->name('copy');
+            Route::post('/copy', 'ProductController@copyProcess')->name('copy-process');
+            Route::put('/{product}/activate', 'ProductController@activate')->name('activate');
+        });
+        Route::resource('/products', 'ProductController');
+        // Product routes [END]
+
+        // ProductCategory routes [BEGIN]
+        Route::prefix('product-categories')->as('product-categories.')->group(function () {
+            Route::put('/{productCategory}/activate', 'ProductCategoryController@activate')->name('activate');
+        });
+        Route::resource('/product-categories', 'ProductCategoryController')->except(['show']);
+        // ProductCategory routes [END]
+
+        Route::resource('/product-discounts', 'ProductDiscountController');
+        Route::resource('/product-inventories', 'ProductInventoryController');
+
         // Misc routes [BEGIN]
         Route::get('/misc/clear-cache', 'MiscController@clearCache')->name('misc.clear-cache');
         // Misc routes [END]
