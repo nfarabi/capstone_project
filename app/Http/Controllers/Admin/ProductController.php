@@ -7,6 +7,8 @@ use App\Product;
 use App\ProductCategory;
 use App\ProductInventory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use League\Csv\Reader;
 
 class ProductController extends Controller
 {
@@ -141,6 +143,50 @@ class ProductController extends Controller
         $product->save();
     }
 
+    public function import(Request $request)
+    {
+        if ($request->query('template')) {
+            return response()->csv('name,short_description,long_description,sku,uuid,price,inventory,discount,category_id', 'product-import-template', false);
+        }
+
+        return view( 'admin.products.import' );
+    }
+
+    public function importProcess(Request $request)
+    {
+        $request->validate( self::_getValidation($request) );
+
+        $products = Product::where('merchant_id', auth()->id())->get();
+
+        $reader = Reader::createFromPath($request->file('csv'), 'r');
+        $reader->setHeaderOffset(0);
+        $records = $reader->getRecords();
+
+        foreach ($records as $record) {
+            $values = [
+                'name' => $record['name'],
+                'short_description' => Str::limit($record['short_description'], 255, ''),
+                'long_description' => $record['long_description'],
+                'sku' => $record['sku'],
+                'uuid' => $record['uuid'],
+                'price' => !empty($record['price']) ? $record['price'] : 0,
+                'inventory' => !empty($record['inventory']) ? $record['inventory'] : null,
+                'discount' => !empty($record['discount']) ? $record['discount'] : null,
+            ];
+
+            if (!empty($record['uuid']) && !empty($product = $products->firstWhere('uuid', $record['uuid']))) {
+                $product->fill( $values );
+            } else {
+                $product = new Product( $values );
+                $product->merchant()->associate(auth()->id());
+            }
+
+            $product->save();
+        }
+
+        return redirect()->route('admin.products.index');
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -163,6 +209,10 @@ class ProductController extends Controller
                     'discount'          => 'nullable|numeric',
                 ];
                 break;
+            case 'importProcess':
+                $rules = [
+                    'csv'               => 'required|file|mimes:csv,txt'
+                ];
         }
 
         return $rules;

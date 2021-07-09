@@ -42,6 +42,8 @@ Route::middleware(['language'])->group(function () {
         Route::prefix('products')->as('products.')->group(function () {
             Route::get('/copy', 'ProductController@copy')->name('copy');
             Route::post('/copy', 'ProductController@copyProcess')->name('copy-process');
+            Route::get('/import', 'ProductController@import')->name('import');
+            Route::post('/import', 'ProductController@importProcess')->name('import-process');
             Route::put('/{product}/activate', 'ProductController@activate')->name('activate');
         });
         Route::resource('/products', 'ProductController');

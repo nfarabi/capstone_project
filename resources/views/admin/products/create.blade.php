@@ -94,7 +94,7 @@
             <div class="row">
                 <div class="col-12">
                     <a href="{{ url()->previous() }}" class="btn btn-secondary">Cancel</a>
-                    <input type="submit" value="Create new Language" class="btn btn-success float-right">
+                    <input type="submit" value="Create new Product" class="btn btn-success float-right">
                 </div>
             </div>
         </form>

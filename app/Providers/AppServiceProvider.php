@@ -4,10 +4,13 @@ namespace App\Providers;
 
 use App\Language;
 use Cache;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
+use Response;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -84,5 +87,20 @@ class AppServiceProvider extends ServiceProvider
             return $collection->hasPages();
         });
         // Blade custom if statements [END]
+
+        Response::macro('csv', function ($content, $name, $date = true) {
+            $name = Str::slug($name);
+
+            if ($date) {
+                $name .= ' - ' . Carbon::now();
+            }
+
+            $headers = [
+                'Content-type' => 'text/csv',
+                'Content-Disposition' => 'attachment; filename="'.$name.'.csv"',
+            ];
+
+            return Response::make($content, 200, $headers);
+        });
     }
 }

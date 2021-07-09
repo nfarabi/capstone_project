@@ -22,6 +22,14 @@
                             <h3 class="card-title">List of Products</h3>
 
                             <div class="card-tools">
+                                {{--<a href="{{ route('admin.products.export') }}" class="btn btn-sm btn-warning">
+                                    <i class="fas fa-file-download"></i>
+                                    Export
+                                </a>--}}
+                                <a href="{{ route('admin.products.import') }}" class="btn btn-sm btn-success">
+                                    <i class="fas fa-file-upload"></i>
+                                    Import
+                                </a>
                                 <a href="{{ route('admin.products.create') }}" class="btn btn-sm btn-primary">
                                     <i class="fas fa-plus"></i>
                                     Create
@@ -81,7 +89,7 @@
                                         </tr>
                                     @empty
                                         <tr>
-                                            <td colspan="7" class="text-center">No record found</td>
+                                            <td colspan="8" class="text-center">No record found</td>
                                         </tr>
                                     @endforelse
                                 </tbody>
