@@ -3,6 +3,7 @@
     "/js/app.js": "/js/app.js",
     "/css/admin.css": "/css/admin.css",
     "/css/app.css": "/css/app.css",
+    "/css/shop.css": "/css/shop.css",
     "/js/vendor/codemirror/codemirror.js": "/js/vendor/codemirror/codemirror.js",
     "/js/vendor/codemirror/mode/xml/xml.js": "/js/vendor/codemirror/mode/xml/xml.js",
     "/js/vendor/codemirror/mode/css/css.js": "/js/vendor/codemirror/mode/css/css.js",

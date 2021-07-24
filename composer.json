@@ -12,6 +12,7 @@
         "ext-intl": "*",
         "cviebrock/eloquent-sluggable": "^6.0",
         "fideloper/proxy": "^4.4",
+        "hardevine/shoppingcart": "^3.0",
         "laracasts/flash": "^3.0",
         "laravel/framework": "^6.20.26",
         "laravel/tinker": "^2.5",

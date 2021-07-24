@@ -20,6 +20,9 @@ mix.js('resources/js/admin.js', 'public/js')
     .sass('resources/sass/admin.scss', 'public/css')
     .sass('resources/sass/app.scss', 'public/css')
 
+    // CSS
+    .postCss('resources/css/shop.css', 'public/css', [])
+
     // COPY FILE
     .copy('node_modules/codemirror/lib/codemirror.js', 'public/js/vendor/codemirror')
     .copy('node_modules/codemirror/mode/xml/xml.js', 'public/js/vendor/codemirror/mode/xml')

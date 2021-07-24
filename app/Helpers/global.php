@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
+use Money\Currencies\ISOCurrencies;
+use Money\Formatter\IntlMoneyFormatter;
+use Money\Money;
 
 if (! function_exists('gate_check')) {
     function gate_check($callee_controller, $callee_method, array $permissions = [])
@@ -42,5 +45,16 @@ if (! function_exists('gate_check')) {
 if (! function_exists('storage')) {
     function storage ($path) {
         return asset( "storage/{$path}" );
+    }
+}
+
+if (! function_exists('present_price')) {
+    function present_price ($price) {
+        $moneyFormatter = new IntlMoneyFormatter(
+            new \NumberFormatter('en_US', \NumberFormatter::CURRENCY),
+            new ISOCurrencies()
+        );
+
+        return $moneyFormatter->format(Money::USD($price));
     }
 }

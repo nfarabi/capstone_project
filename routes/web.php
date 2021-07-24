@@ -69,6 +69,18 @@ Route::middleware(['language'])->group(function () {
     });
 
     Auth::routes(['verify' => true]);
+
+    Route::namespace('Shop')->group(function (){
+        Route::get('/', 'ProductController@index')->name('home');
+        Route::get('/product/{product}', 'ProductController@show')->name('product.show');
+        Route::get('/product/{product}', 'ProductController@show')->name('product.show');
+
+        // Product routes [BEGIN]
+        Route::prefix('cart')->as('cart.')->group(function () {
+            Route::get('/', 'CartController@index')->name('index');
+            Route::delete('/{id}', 'CartController@destroy')->name('destroy');
+        });
+    });
+
     Route::get('/{pageSlug}', 'PageController@show')->name('pages.show');
-    Route::get('/', 'PageController@show')->name('home');
 });
