@@ -78,6 +78,7 @@ Route::middleware(['language'])->group(function () {
         // Product routes [BEGIN]
         Route::prefix('cart')->as('cart.')->group(function () {
             Route::get('/', 'CartController@index')->name('index');
+            Route::post('/{product}', 'CartController@store')->name('store');
             Route::delete('/{id}', 'CartController@destroy')->name('destroy');
         });
     });

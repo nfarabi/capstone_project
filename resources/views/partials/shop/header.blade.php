@@ -15,21 +15,17 @@
                 <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512" width="20" height="20"><title>Cart</title><circle cx="176" cy="416" r="16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><circle cx="400" cy="416" r="16" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M48 80h64l48 272h256"/><path d="M160 288h249.44a8 8 0 007.85-6.43l28.8-144a8 8 0 00-7.85-9.57H128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32"/></svg>
             </a>
             &nbsp;&nbsp;
-            <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+            <a class="btn btn-sm btn-outline-secondary" href="{{ route('register') }}">Sign up</a>
             &nbsp;&nbsp;
-            <a class="btn btn-sm btn-outline-secondary" href="#">Log in</a>
+            <a class="btn btn-sm btn-outline-secondary" href="{{ route('login') }}">Log in</a>
         </div>
     </div>
 </header>
 
 <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-between">
-        <a class="p-2 text-muted" href="#">Books</a>
-        <a class="p-2 text-muted" href="#">Fashion</a>
-        <a class="p-2 text-muted" href="#">Technology</a>
-        <a class="p-2 text-muted" href="#">Health</a>
-        <a class="p-2 text-muted" href="#">Sports</a>
-        <a class="p-2 text-muted" href="#">Food</a>
-        <a class="p-2 text-muted" href="#">Games</a>
+    @foreach($_categories as $category)
+        <a class="p-2 text-muted" href="#">{{ $category->name }}</a>
+        @endforeach
     </nav>
 </div>
