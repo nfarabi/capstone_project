@@ -1,0 +1,24 @@
+@API_ROOT=http://127.0.0.1:8000/api/v1
+@PRODUCT_ID=1
+
+### Fetch all products
+GET {{API_ROOT}}/products
+Accept: application/json
+
+### Fetch a single product
+GET {{API_ROOT}}/products/{{PRODUCT_ID}}
+Accept: application/json
+
+### Fetch cart
+GET {{API_ROOT}}/cart
+Accept: application/json
+
+### Add cart item
+POST {{API_ROOT}}/cart/{{PRODUCT_ID}}
+Accept: application/json
+
+### Remove cart item
+DELETE {{API_ROOT}}/cart/{{PRODUCT_ID}}
+Accept: application/json
+
+###

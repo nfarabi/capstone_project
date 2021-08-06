@@ -28,10 +28,14 @@ class ProductController extends Controller
      * Display the specified resource.
      *
      * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function show(Product $product)
     {
-        //
+        $data = [
+            'product' => $product
+        ];
+
+        return response()->json($data);
     }
 }

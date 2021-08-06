@@ -1,5 +1,7 @@
 @extends('layouts.shop')
 
+@section('title', $product->name)
+
 @section('content')
     <div class="row mb-2">
         <div class="col-sm-12">

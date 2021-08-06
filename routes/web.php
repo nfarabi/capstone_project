@@ -71,16 +71,34 @@ Route::middleware(['language'])->group(function () {
     Auth::routes(['verify' => true]);
 
     Route::namespace('Shop')->group(function (){
+        // Product routes [BEGIN]
         Route::get('/', 'ProductController@index')->name('home');
         Route::get('/product/{product}', 'ProductController@show')->name('product.show');
-        Route::get('/product/{product}', 'ProductController@show')->name('product.show');
+        // Product routes [END]
 
-        // Product routes [BEGIN]
+        // Cart routes [BEGIN]
         Route::prefix('cart')->as('cart.')->group(function () {
             Route::get('/', 'CartController@index')->name('index');
             Route::post('/{product}', 'CartController@store')->name('store');
             Route::delete('/{id}', 'CartController@destroy')->name('destroy');
         });
+    });
+
+    Route::namespace('Api')->prefix('api/v1')->group(function (){
+        // Product routes [BEGIN]
+        Route::prefix('products')->as('api.products.')->group(function (){
+            Route::get('/', 'ProductController@index')->name('index');
+            Route::get('/{product}', 'ProductController@show')->name('show');
+        });
+        // Product routes [END]
+
+        // Cart routes [BEGIN]
+        Route::prefix('cart')->as('api.cart.')->group(function () {
+            Route::get('/', 'CartController@index')->name('index');
+            Route::post('/{product}', 'CartController@store')->name('store');
+            Route::delete('/{product}', 'CartController@destroy')->name('destroy');
+        });
+        // Cart routes [END]
     });
 
     Route::get('/{pageSlug}', 'PageController@show')->name('pages.show');
